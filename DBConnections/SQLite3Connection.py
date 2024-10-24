@@ -60,6 +60,7 @@ class SQLiteConnection(DBConnection):
                 if cpn != 'most_common':
                     params = (int(cpn), int(sol), wd[cpn]['compass_degrees'], wd[cpn]['compass_point'], wd[cpn]['compass_right'], wd[cpn]['compass_up'], wd[cpn]['ct'])
                     self.__c.execute(query, params)
+        self.__conn.commit()
 
 
     def createDB(self):

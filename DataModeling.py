@@ -2,11 +2,31 @@
 generate DataModels, then output the Data Models to an OutputStream."""
 
 import matplotlib.pyplot as plt
+from math import atan2, degrees
 class DataModel():
     def __init__(self, conn):
         self.conn = conn
 
-    def __loadData(self):
+    def getDailySummary(self, APIdata:dict) -> dict:
+        latestSol = APIdata[APIdata['sol_keys'][6]]
+
+        rightWindComponent = latestSol['WD']['most_common']['compass_right']
+        upWindComponent = latestSol['WD']['most_common']['compass_up']
+        windRads = atan2(rightWindComponent, upWindComponent)
+        windDegrees = degrees(windRads)
+        if windDegrees < 0:
+            windDegrees += 360
+
+        summaryData = {
+            'avAT' : latestSol['AT']['av'],
+            'avHWS' : latestSol['HWS']['av'],
+            'avPRE' : latestSol['PRE']['av'],
+            'season' : latestSol['Season'],
+            'mostCommonWD' : windDegrees
+        }
+        return summaryData
+
+    def __loadData(self) -> int:
         if (self.conn.connect() == 200):
             self.__data = self.conn.execute("""
                SELECT sols.sol, AT.av, HWS.av, PRE.av
@@ -18,7 +38,7 @@ class DataModel():
         else:
             return -1
 
-    def __renderData(self):
+    def __renderData(self) -> int:
         if (self.__loadData()>0):
             self.__sols = [row[0] for row in self.__data]
             self.__at = [row[1] for row in self.__data if row[1] is not None]
