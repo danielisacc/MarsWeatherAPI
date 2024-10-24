@@ -39,3 +39,9 @@ compass_right REAL,
 compass_up REAL,
 ct INTEGER,
 FOREIGN KEY (sol) REFERENCES sols(sol));
+
+CREATE TABLE IF NOT EXISTS api_keys
+(api_key_id INTEGER PRIMARY KEY AUTOINCREMENT,
+api_key_hash TEXT,
+date_of_creation TEXT,
+username TEXT)

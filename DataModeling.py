@@ -3,6 +3,7 @@ generate DataModels, then output the Data Models to an OutputStream."""
 
 import matplotlib.pyplot as plt
 from math import atan2, degrees
+from io import BytesIO
 class DataModel():
     def __init__(self, conn):
         self.conn = conn
@@ -18,6 +19,7 @@ class DataModel():
             windDegrees += 360
 
         summaryData = {
+            'sol' : APIdata['sol_keys'][6],
             'avAT' : latestSol['AT']['av'],
             'avHWS' : latestSol['HWS']['av'],
             'avPRE' : latestSol['PRE']['av'],
@@ -77,7 +79,13 @@ class DataModel():
             plt.legend()
 
             plt.tight_layout()  # Adjusts the spacing
-            plt.savefig('weather_trends.png')  # You can change the filename and format as needed
+
+            img_io = BytesIO()
+            plt.savefig(img_io, format='png')  # You can change the filename and format as needed
+            img_io.seek(0)
+
+            plt.close()
+            return img_io
 
     # Daily Summary of the weather, inlcuding max, min temp, wind speed, pressure
     # Store "Extreme" Weather events such as record Highs of temp, wind speed, or rapid pressure drops
