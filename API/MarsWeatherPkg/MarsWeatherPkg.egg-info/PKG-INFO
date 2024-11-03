@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: MarsWeatherPkg
+Version: 0.1
+Summary: A package to interact with NASA InSight API
+Home-page: https://github.com/danielisacc/mars-weather-app
+Author: Daniel Delavega
+Author-email: daniel.delavega.dev@gmail.com
+Requires-Dist: requests
+Requires-Dist: matplotlib
+Requires-Dist: pandas

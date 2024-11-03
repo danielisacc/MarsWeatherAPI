@@ -10,7 +10,7 @@ api = APIHandler.APIHandler()
 dbConnection = SQLiteConnection()
 model = DataModeling.DataModel(dbConnection)
 
-@app.route('/api/getGraph')
+@app.route('/api/getGraph/')
 def index():
     img_io = model.generateHistoricalGraphs()
     return send_file(img_io, mimetype='image/png')

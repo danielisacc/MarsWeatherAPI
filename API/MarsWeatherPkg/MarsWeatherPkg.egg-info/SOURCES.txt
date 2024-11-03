@@ -1,0 +1,10 @@
+setup.py
+DBConnections/DBConnection.py
+DBConnections/MySQLConnection.py
+DBConnections/SQLite3Connection.py
+DBConnections/__init__.py
+MarsWeatherPkg.egg-info/PKG-INFO
+MarsWeatherPkg.egg-info/SOURCES.txt
+MarsWeatherPkg.egg-info/dependency_links.txt
+MarsWeatherPkg.egg-info/requires.txt
+MarsWeatherPkg.egg-info/top_level.txt
