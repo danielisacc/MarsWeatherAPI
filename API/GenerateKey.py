@@ -1,5 +1,5 @@
 import hashlib
-from MarsWeather import DBConnection
+from MarsWeatherPkg import DBConnection
 import os
 from datetime import datetime
 

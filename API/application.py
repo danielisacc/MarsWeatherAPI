@@ -1,6 +1,6 @@
 from flask import Flask, send_file
 from flask_cors import CORS
-from MarsWeather import SQLiteConnection, APIHandler, DataModeling
+from MarsWeatherPkg import SQLiteConnection, APIHandler, DataModeling
 
 app = Flask(__name__)
 

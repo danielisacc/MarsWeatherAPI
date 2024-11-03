@@ -1,4 +1,4 @@
-from MarsWeather import DBConnection, SQLiteConnection, APIHandler, DataModeling
+from MarsWeatherPkg import DBConnection, SQLiteConnection, APIHandler, DataModeling
 # Connect to the API and load JSON response into data variable
 # api = APIHandler.APIHandler()
 # api.connect()
