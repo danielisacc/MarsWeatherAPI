@@ -34,7 +34,7 @@ This app is desgined to collect data from NASA's Mars Weather API and output tha
 
 ### MarsWeather
 
-This package is desgined to collect the data from NASA's API then generate Data Models. This package does have multiple output types designed for testing such as ConsoleStream, but it's main function will be used as a backend for Django to collect data from a DB storing the data.
+This package is desgined to collect the data from NASA's API then generate Data Models. This package does have multiple output types designed for testing such as ConsoleStream, but it's main function will be used as a backend for a Flask API to collect data from a DB storing the data and send it to a front end using HTML, CSS, and JS.
 
 #### MarsWeather Modules
 
