@@ -75,17 +75,9 @@ Module of MarsWeather package that is used to connect to NASA's Insight API, the
 - **FailedAPIConnection(_APIError_)** - Designed to trigger when there is a failed connection to the API for any reason. Inherits from root APIError class.
 - **APIKeyError(_FailedAPIConnection_)** - Desgined to be raised when an invalid Key is entered into the get request. Inherits from FailedAPIConnection(APIErrors) class, since it is a specific failed connection error.
 
-## OutputStream
+## DBConnections
 
 A subpackage containing the output options used during developement.
-
-### Subpackages and Modules
-
-- **DBConnection** - Subpackage storing modules for connecting to DB's, creating DB schemas, inserting API JSON values and executing queries.
-- **consoleStream.py** - Module used to output the DataModels and raw JSON data to the console.
-- **FileStream.py** - Module used to stream the DataModels and raw JSON data into a file.
-
-#### DBConnection Modules
 
 - DBConnection - Abstract class for all DBConnection types to inherit from, outlining different functionalites that DBConnection Classes need to impliment.
   - connect() - Used to connect to the DB.
